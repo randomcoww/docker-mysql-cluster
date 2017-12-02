@@ -8,7 +8,7 @@ spec:
   hostNetwork: true
   containers:
   - name: ndb-mgmd
-    image: randomcoww/k8s-mysql_cluster_ndb_mgmd:latest
+    image: randomcoww/mysql_cluster_ndb_mgmd:latest
     env:
     - name: CONFIG
       value: |

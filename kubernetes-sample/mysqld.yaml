@@ -8,7 +8,7 @@ spec:
   hostNetwork: true
   containers:
   - name: mysqld
-    image: randomcoww/k8s-mysql_cluster_mysqld:latest
+    image: randomcoww/mysql_cluster_mysqld:latest
     args:
     - "--ndbcluster"
     - "--default_storage_engine=ndbcluster"
