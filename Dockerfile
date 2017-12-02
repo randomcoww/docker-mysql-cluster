@@ -10,4 +10,12 @@ RUN set -x \
   && yum install -y $PACKAGE_URL \
   && yum clean all \
   && rm -rf /var/tmp/* \
-  && rm -rf /var/cache/yum/*
+  && rm -rf /var/cache/yum/* \
+  && rm -rf /var/run/mysqld/* \
+  && mkdir -p /var/lib/mysql-cluster
+
+COPY my.cnf /etc/my.cnf
+COPY mysqld-entrypoint.sh /
+COPY ndbd-entrypoint.sh /
+COPY ndb_mgmd-entrypoint.sh /
+COPY seeder.sh /
