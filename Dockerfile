@@ -15,7 +15,7 @@ RUN set -x \
   && mkdir -p /var/lib/mysql-cluster
 
 COPY my.cnf /etc/my.cnf
-COPY mysqld-entrypoint.sh /
-COPY ndbd-entrypoint.sh /
-COPY ndb_mgmd-entrypoint.sh /
-COPY seeder.sh /
+COPY mysqld-entrypoint /
+COPY ndbd-entrypoint /
+COPY ndb_mgmd-entrypoint /
+COPY seeder /
