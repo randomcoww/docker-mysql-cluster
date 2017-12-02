@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql-cluster-mgmd
+spec:
+  restartPolicy: Always
+  hostNetwork: true
+  containers:
+  - name: ndb-mgmd
+    image: randomcoww/k8s-mysql_cluster_ndb_mgmd:latest
+    env:
+    - name: CONFIG
+      value: |
+        [ndb_mgmd default]
+        datadir=/var/lib/mysql-cluster
+
+        [ndbd default]
+        NoOfReplicas=2
+        DataMemory=256M
+        IndexMemory=128M
+        DataDir=/var/lib/mysql-cluster
+
+        [ndb_mgmd]
+        hostname=192.168.62.237
+
+        [ndbd]
+        hostname=192.168.62.238
+
+        [ndbd]
+        hostname=192.168.62.239
+
+        [mysqld]
+        hostname=192.168.62.238
+
+        [mysqld]
+        hostname=192.168.62.239
