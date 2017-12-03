@@ -9,9 +9,10 @@ RUN set -x \
   \
   && yum install -y $PACKAGE_URL \
   && yum clean all \
-  && rm -rf /var/tmp/* \
-  && rm -rf /var/cache/yum/* \
-  && rm -rf /var/run/mysqld/* \
+  && rm -rf \
+    /var/tmp/* \
+    /var/cache/yum/* \
+    /var/run/mysqld/* \
   && mkdir -p /var/lib/mysql-cluster
 
 COPY my.cnf /etc/my.cnf
