@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo -en "$CONFIG" > /etc/mysql/my.cnf
+unset CONFIG
+
 ## start
 exec ndbd \
   --nodaemon \

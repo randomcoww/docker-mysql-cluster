@@ -2,13 +2,15 @@
 
 mysqld --initialize || true
 
-echo -en "$INIT" > /etc/init.sql
+echo -en "$INIT" > /etc/mysql/init.sql
 unset INIT
+
+echo -en "$CONFIG" > /etc/mysql/my.cnf
+unset CONFIG
 
 ## start
 exec mysqld \
-  --init-file=/etc/init.sql \
+  --init-file=/etc/mysql/init.sql \
   --skip-name-resolve \
-  --symbolic-links=0 \
   --console=true \
   "$@"
