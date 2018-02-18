@@ -14,7 +14,7 @@ RUN set -x \
     /var/tmp/* \
     /var/cache/yum/* \
     /var/run/mysqld/* \
-  && mkdir -p /var/lib/mysql-cluster
+  && mkdir -p /var/lib/mysql-cluster /etc/mysql
 
 COPY my.cnf /etc/my.cnf
 COPY mysqld-entrypoint /
